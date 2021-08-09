@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:internal"
         mc:Ignorable="d"
-        Title="LoginScreen" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="LoginScreen" Height="500" Width="500" FontSize="14" Background="Maroon">
+
+    <Border Background="#2E3137" CornerRadius="20" Margin="20">
+        <StackPanel Margin="20">
+            <Label Content="Login" Foreground="White" FontSize="40" HorizontalAlignment="Center"/>
+            <Separator Height="6"/>
+            <Label Content="Username" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtUsername" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White"/>
+                
+        </StackPanel>
+    </Border>
+
 </Window>
