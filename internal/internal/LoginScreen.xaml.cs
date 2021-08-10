@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace internal
-{
+namespace internal{
     /// <summary>
     /// Interaction logic for LoginScreen.xaml
     /// </summary>
