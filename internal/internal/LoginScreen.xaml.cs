@@ -17,10 +17,11 @@ namespace internal{
     /// Interaction logic for LoginScreen.xaml
     /// </summary>
     public partial class LoginScreen : Window
-{
-    public LoginScreen()
     {
-        InitializeComponent();
+        public LoginScreen()
+        {
+            InitializeComponent();
+        }
+
     }
-}
 }
