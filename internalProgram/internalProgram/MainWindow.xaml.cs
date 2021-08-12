@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -21,9 +22,18 @@ namespace internalProgram
     /// </summary>
     public partial class MainWindow : Window
     {
+        MySqlConnection connection;
         public MainWindow()
         {
             InitializeComponent();
+            string connectionString = string.Format(
+            "Server=nimbus.rangitoto.school.nz;" +
+            "Port=3307;" +
+            "database=student2021131404;" +
+            "UID=2021131404;" +
+            "password=131404;" +
+            "sslmode=none;");
+            connection = new MySqlConnection(connectionString);
         }
         public void buttonLoginClick(object sender, RoutedEventArgs e)
         {
