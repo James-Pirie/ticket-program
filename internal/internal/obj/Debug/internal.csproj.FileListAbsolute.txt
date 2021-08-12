@@ -1,4 +1,0 @@
-C:\Users\James Pirie\ticket-program\internal\internal\obj\Debug\internal.csproj.AssemblyReference.cache
-C:\Users\James Pirie\ticket-program\internal\internal\obj\Debug\LoginScreen.g.cs
-C:\Users\James Pirie\ticket-program\internal\internal\obj\Debug\@internal_MarkupCompile.cache
-C:\Users\James Pirie\ticket-program\internal\internal\obj\Debug\@internal_MarkupCompile.lref
