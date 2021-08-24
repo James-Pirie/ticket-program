@@ -38,9 +38,10 @@ namespace internalProgram
         }
         public void ButtonLoginClick(object sender, RoutedEventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand("SELECT 1");
-
+            string inputUsername = usernameBox.Text.ToString();
+            string inputPassword = passwordBox.Password.ToString();
+            Console.WriteLine(inputPassword);
+            Console.WriteLine(inputUsername);
         }
     }
 }

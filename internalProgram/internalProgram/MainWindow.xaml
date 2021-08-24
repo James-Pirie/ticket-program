@@ -12,9 +12,9 @@
             <Label Content="Login" Foreground="White" FontSize="40" HorizontalAlignment="Center"/>
             <Separator Height="6"/>
             <Label Name="usernameLabel" Content="Username" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtUsername" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White"/>
+            <TextBox x:Name="usernameBox" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White"/>
             <Label Name="passwordLabel" Content="Password" Foreground="White" FontSize="20"/>
-            <PasswordBox Name="txtPassword" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White"/>
+            <PasswordBox Name="passwordBox" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White"/>
             <Button Name="buttonLogin" Content="Login" Margin="130 35" Background="#545d6a" FontSize="20" Foreground="White" Click="ButtonLoginClick"/>
         </StackPanel>
     </Border>
