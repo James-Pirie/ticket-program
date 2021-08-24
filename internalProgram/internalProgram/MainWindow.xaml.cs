@@ -34,10 +34,13 @@ namespace internalProgram
             "password=131404;" +
             "sslmode=none;");
             connection = new MySqlConnection(connectionString);
+
         }
-        public void buttonLoginClick(object sender, RoutedEventArgs e)
+        public void ButtonLoginClick(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=");
+            connection.Open();
+            MySqlCommand command = new MySqlCommand("SELECT 1");
+
         }
     }
 }
