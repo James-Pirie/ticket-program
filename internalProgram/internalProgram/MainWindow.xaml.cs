@@ -26,6 +26,7 @@ namespace internalProgram
         public MainWindow()
         {
             InitializeComponent();
+
             string connectionString = string.Format(
             "Server=nimbus.rangitoto.school.nz;" +
             "Port=3307;" +
@@ -38,10 +39,24 @@ namespace internalProgram
         }
         public void ButtonLoginClick(object sender, RoutedEventArgs e)
         {
-            string inputUsername = usernameBox.Text.ToString();
-            string inputPassword = passwordBox.Password.ToString();
-            Console.WriteLine(inputPassword);
-            Console.WriteLine(inputUsername);
+
+            var cmd = new MySqlCommand($"SELECT UserName FROM login WHERE UserName = @username AND Password = @password;", connection);
+            // use parameters to proctect against SQL injection
+            cmd.Parameters.AddWithValue("@username", usernameBox.Text);
+            cmd.Parameters.AddWithValue("@password", passwordBox.Password);
+            connection.Open();
+            string user = (string)cmd.ExecuteScalar();
+            connection.Close();
+
+            if (String.IsNullOrEmpty(user))
+            {
+                MessageBox.Show("Wrong username/password");
+            }
+            else
+            {
+                MessageBox.Show("Login succesful");
+            }
+
         }
     }
 }
