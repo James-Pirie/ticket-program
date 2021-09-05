@@ -54,6 +54,8 @@ namespace internalProgram
             }
             else
             {
+                ControlWindow ControlWindow = new ControlWindow();
+                ControlWindow.Show();
                 Close();
             }
 

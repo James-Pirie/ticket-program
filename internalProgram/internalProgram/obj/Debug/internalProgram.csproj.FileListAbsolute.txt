@@ -51,3 +51,5 @@ C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\Sy
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram.csproj.CopyComplete
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\ControlWindow.g.cs
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\ControlWindow.baml
