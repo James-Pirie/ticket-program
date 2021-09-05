@@ -54,7 +54,7 @@ namespace internalProgram
             }
             else
             {
-                MessageBox.Show("Login succesful");
+                Close();
             }
 
         }
