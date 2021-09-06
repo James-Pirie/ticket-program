@@ -39,7 +39,6 @@ namespace internalProgram
         }
         public void ButtonLoginClick(object sender, RoutedEventArgs e)
         {
-
             var cmd = new MySqlCommand($"SELECT UserName FROM login WHERE UserName = @username AND Password = @password;", connection);
             // use parameters to proctect against SQL injection
             cmd.Parameters.AddWithValue("@username", usernameBox.Text);

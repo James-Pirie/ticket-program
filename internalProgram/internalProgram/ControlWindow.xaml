@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:internalProgram"
         mc:Ignorable="d"
-        Title="ControlWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="ControlWindow" Height="500" Width="800" FontSize="14" Background="Maroon">
+
+
+    <Border Background="#2E3137" CornerRadius="20" Margin="20">
+        <Grid>
+            <TextBox x:Name="nameBox" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White" Margin="22,86,323,312.5" Text="Name" />
+            <TextBox x:Name="emailBox" Background="#545d6a" FontSize="20" Height="34" Width="410" Foreground="White" Margin="22,140,323,258.5" Text="Email" />
+            <TextBox x:Name="issueBox" Background="#545d6a" FontSize="20" Foreground="White" Margin="22,195,20,73.5" Text="Describe the issue" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextChanged="issueBox_TextChanged"/>
+            <Separator Margin="22,50,20,360.5"/>
+            <Label x:Name="usernameLabel" Content="Report an Issue" Foreground="White" FontSize="24" Margin="22,10,318,372.5"/>
+            <Button x:Name="submitButton" Content="Submit" Margin="22,377,578,18.5" Background="#545d6a" FontSize="20" Foreground="White" Click="SubmitTicket"/>
+            <Button x:Name="logoutButton" Content="Logout" Margin="580,15,20,382.5" Background="#545d6a" FontSize="20" Foreground="White" Click="Logout"/>
+
+
+        </Grid>
+    </Border>
+
 </Window>
