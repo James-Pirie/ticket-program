@@ -16,11 +16,9 @@ C:\Users\James Pirie\source\repos\internalProgram\internalProgram\obj\Debug\inte
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\internalProgram.exe.config
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\internalProgram.exe
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\internalProgram.pdb
-C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\MainWindow.g.cs
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\App.g.cs
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram_MarkupCompile.cache
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram_MarkupCompile.lref
-C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\MainWindow.baml
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram.g.resources
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram.Properties.Resources.resources
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram.csproj.GenerateResource.cache
@@ -50,6 +48,10 @@ C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\Sy
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram.csproj.CopyComplete
-C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\ControlWindow.g.cs
-C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\ControlWindow.baml
 C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\internalProgram.csproj.AssemblyReference.cache
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\AdminWindow.g.cs
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\AdminWindow.baml
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\ControlWindow.g.cs
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\MainWindow.g.cs
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\ControlWindow.baml
+C:\Users\James Pirie\ticket-program\internalProgram\internalProgram\obj\Debug\MainWindow.baml

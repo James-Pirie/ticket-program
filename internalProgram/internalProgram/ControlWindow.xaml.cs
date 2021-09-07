@@ -41,11 +41,11 @@ namespace internalProgram
             string nameString = nameBox.Text;
             string emailString = emailBox.Text;
             string descriptionString = issueBox.Text;
-            int ticketID = 1;
-            var sendTicket = new MySqlCommand($"INSERT INTO tickets(TicketId, Name, Email, Description) VALUES ('{ticketID}', '{nameString}', '{emailString}', '{descriptionString}');", connection);
+            var sendTicket = new MySqlCommand($"INSERT INTO tickets(Name, Email, Description) VALUES ('{nameString}', '{emailString}', '{descriptionString}');", connection);
             connection.Open();
             sendTicket.ExecuteNonQuery();
             connection.Close();
+            MessageBox.Show("Your complaint has been succesfuly submited");
         }
 
         public void Logout(object sender, RoutedEventArgs e)
