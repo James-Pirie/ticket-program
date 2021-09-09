@@ -42,7 +42,6 @@ namespace internalProgram
         public void GenerateAdminList()
         {
             List<string> adminList = new List<string>();
-            List<string> sortByAdminList = new List<string>();
             bool moreAdmins = true;
             int currentAdminId = 1;
             connection.Open();

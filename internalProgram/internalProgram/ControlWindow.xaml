@@ -10,7 +10,7 @@
 
     <Border Background="#2E3137" CornerRadius="20" Margin="20">
         <Grid>
-            <TextBox MaxLength = "45" x:Name="nameBox" Background="#545d6a" FontSize="20" Height="34" Foreground="White" Margin="22,86,323,312.5" Text="Summary" />
+            <TextBox MaxLength = "45" x:Name="nameBox" Background="#545d6a" FontSize="20" Height="34" Foreground="White" Margin="22,86,323,312.5" Text="Summary"  />
             <TextBox MaxLength = "45" x:Name="emailBox" Background="#545d6a" FontSize="20" Width="410" Foreground="White" Margin="22,140,323,258.5" Text="Email" />
             <TextBox MaxLength = "10000" x:Name="issueBox" Background="#545d6a" FontSize="20" Foreground="White" Margin="22,195,20,73.5" Text="Describe the issue" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
             <Separator Margin="22,50,20,360.5"/>
