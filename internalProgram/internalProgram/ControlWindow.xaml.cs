@@ -24,8 +24,12 @@ namespace internalProgram
 
         public ControlWindow()
         {
+            
             InitializeComponent();
 
+            
+
+            
             string connectionString = string.Format(
             "Server=nimbus.rangitoto.school.nz;" +
             "Port=3307;" +
@@ -34,6 +38,7 @@ namespace internalProgram
             "password=131404;" +
             "sslmode=none;");
             connection = new MySqlConnection(connectionString);
+
         }
 
         public void SubmitTicket(object sender, RoutedEventArgs e)
@@ -42,7 +47,9 @@ namespace internalProgram
             string emailString = emailBox.Text;
             string descriptionString = issueBox.Text;
             string catagory = selectCatagory.Text;
-            string queryString = $"INSERT INTO tickets(Name, Email, Description, Status, Catagory) VALUES ('{nameString}', '{emailString}', '{descriptionString}', 'unresolved', '{catagory}');";
+            string realName = realNameBox.Text;
+            string job = jobBox.Text;
+            string queryString = $"INSERT INTO tickets(Name, Email, Description, Status, Catagory, UserId, RealName, Job) VALUES ('{nameString}', '{emailString}', '{descriptionString}', 'unresolved', '{catagory}', '1', '{realName}', '{job}');";
             var sendTicket = new MySqlCommand(queryString, connection);
             connection.Open();
             sendTicket.ExecuteNonQuery();
@@ -58,6 +65,11 @@ namespace internalProgram
         }
 
         private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void selectCatagory_Copy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

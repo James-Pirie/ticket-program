@@ -91,6 +91,10 @@ namespace internalProgram
             catagoryDisplaySelected.Text = selectedTicket.catagory;
             statusDisplaySelected.Text = selectedTicket.status;
             adminDisplaySelected.Text = selectedTicket.assignedTo;
+            infoStorage.Text = selectedTicket.info;
+           
+            
+            
         }
 
 
@@ -103,6 +107,9 @@ namespace internalProgram
             string catagoryString = catagoryDisplaySelected.Text;
             string statusString = statusDisplaySelected.Text;
             string adminString = setAdminBox.Text;
+            string[] infoSplit = infoStorage.Text.Split(':');
+            string realName = infoSplit[0];
+            string job = infoSplit[1];
 
             int ticketIdNumerical = 0;
             bool idIsNumeric = int.TryParse(ticketIdString, out ticketIdNumerical);
@@ -111,7 +118,7 @@ namespace internalProgram
                 connection.Open();
                 var deleteCommand = new MySqlCommand($"DELETE FROM tickets WHERE TicketId = '{ticketIdNumerical}'", connection);
                 deleteCommand.ExecuteNonQuery();
-                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
+                string queryString = $"INSERT INTO tickets(RealName, Job, TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{realName}', '{job}', '{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
                 var sendTicket = new MySqlCommand(queryString, connection);
                 sendTicket.ExecuteNonQuery();
                 connection.Close();
@@ -133,6 +140,9 @@ namespace internalProgram
             string catagoryString = catagoryDisplaySelected.Text;
             string statusString = setStatusBox.Text;
             string adminString = adminDisplaySelected.Text;
+            string[] infoSplit = infoStorage.Text.Split(':');
+            string realName = infoSplit[0];
+            string job = infoSplit[1];
 
             int ticketIdNumerical = 0;
             bool idIsNumeric = int.TryParse(ticketIdString, out ticketIdNumerical);
@@ -141,7 +151,7 @@ namespace internalProgram
                 connection.Open();
                 var deleteCommand = new MySqlCommand($"DELETE FROM tickets WHERE TicketId = '{ticketIdNumerical}'", connection);
                 deleteCommand.ExecuteNonQuery();
-                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
+                string queryString = $"INSERT INTO tickets(RealName, Job, TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{realName}', '{job}', '{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
                 var sendTicket = new MySqlCommand(queryString, connection);
                 sendTicket.ExecuteNonQuery();
                 connection.Close();
@@ -163,6 +173,9 @@ namespace internalProgram
             string catagoryString = setCatagoryBox.Text;
             string statusString = statusDisplaySelected.Text;
             string adminString = adminDisplaySelected.Text;
+            string[] infoSplit = infoStorage.Text.Split(':');
+            string realName = infoSplit[0];
+            string job = infoSplit[1];
 
             int ticketIdNumerical = 0;
             bool idIsNumeric = int.TryParse(ticketIdString, out ticketIdNumerical);
@@ -171,7 +184,7 @@ namespace internalProgram
                 connection.Open();
                 var deleteCommand = new MySqlCommand($"DELETE FROM tickets WHERE TicketId = '{ticketIdNumerical}'", connection);
                 deleteCommand.ExecuteNonQuery();
-                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
+                string queryString = $"INSERT INTO tickets(RealName, Job, TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{realName}', '{job}', '{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
                 var sendTicket = new MySqlCommand(queryString, connection);
                 sendTicket.ExecuteNonQuery();
                 connection.Close();
@@ -228,6 +241,12 @@ namespace internalProgram
                 var getCatagory = new MySqlCommand($"SELECT Catagory FROM tickets WHERE TicketId = {i};", connection);
                 var ticketCatagoryScalar = getCatagory.ExecuteScalar();
                 string ticketCatagoryString = ticketCatagoryScalar.ToString();
+                var getRealName = new MySqlCommand($"SELECT RealName FROM tickets WHERE TicketId = {i};", connection);
+                var ticketRealNameScalar = getRealName.ExecuteScalar();
+                string ticketRealNameString = ticketRealNameScalar.ToString();
+                var getJob = new MySqlCommand($"SELECT Job FROM tickets WHERE TicketId = {i};", connection);
+                var ticketJobScalar = getJob.ExecuteScalar();
+                string ticketJobString = ticketJobScalar.ToString();
 
                 newTicket.ticketName = ticketNameString;
                 newTicket.ticketEmail = ticketEmailString;
@@ -236,6 +255,7 @@ namespace internalProgram
                 newTicket.status = ticketStatusString;
                 newTicket.catagory = ticketCatagoryString;
                 newTicket.ticketId = $"{i}";
+                newTicket.info = $"{ticketRealNameScalar}:{ticketJobString}";
                 ticketDisplay.Items.Add(newTicket);
 
             }
@@ -252,5 +272,6 @@ namespace internalProgram
         public string assignedTo { get; set; }
         public string status { get; set; }
         public string catagory { get; set; }
+        public string info { get; set; }
     }
 }

@@ -39,10 +39,11 @@
                     <DataGridTextColumn Header="Ticket ID" Binding="{Binding ticketId}" Width="65"/>
                     <DataGridTextColumn Header="Name of Sender" Binding="{Binding ticketName}" Width="120"/>
                     <DataGridTextColumn Header="Email of Sender" Binding="{Binding ticketEmail}"  Width="120"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="143"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="80"/>
                     <DataGridTextColumn Header="Catagory" Binding="{Binding catagory}" Width="80"/>
                     <DataGridTextColumn Header="Assigned to " Binding="{Binding assignedTo}"/>
-                    <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="96"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="80"/>
+                    <DataGridTextColumn Header="Info" Binding="{Binding info}" Width="79"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Rectangle Fill="#2E3137" HorizontalAlignment="Left" Height="128" Margin="10,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="735"/>
@@ -79,6 +80,10 @@
                 <ComboBoxItem Content="Email"/>
                 <ComboBoxItem Content="Other"/>
             </ComboBox>
+            <TextBox Name="infoStorage" HorizontalAlignment="Left" Height="82" Margin="-4,472,0,-121.5" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="228" IsReadOnly="True" Background="#545d6a" Foreground="White"  AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            <TextBox x:Name="infoStorage2" HorizontalAlignment="Left" Height="82" Margin="272,490,0,-139.5" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="228" IsReadOnly="True" Background="#545d6a" Foreground="White"  AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+
+
         </Grid>
     </Border>
 </Window>

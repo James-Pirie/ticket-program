@@ -22,6 +22,7 @@ namespace internalProgram
     /// </summary>
     public partial class MainWindow : Window
     {
+        string name = "asdf";
         MySqlConnection connection;
         public MainWindow()
         {
@@ -70,7 +71,6 @@ namespace internalProgram
                     ControlWindow ControlWindow = new ControlWindow();
                     ControlWindow.Show();
                 }
-
                 connection.Close();
                 Close();
             }
@@ -78,7 +78,3 @@ namespace internalProgram
     }
 }
 
-public class User
-{
-    public string Role { get; set; }
-}
