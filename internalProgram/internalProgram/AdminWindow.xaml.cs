@@ -42,6 +42,7 @@ namespace internalProgram
         public void GenerateAdminList()
         {
             List<string> adminList = new List<string>();
+            List<string> sortByAdminList = new List<string>();
             bool moreAdmins = true;
             int currentAdminId = 1;
             connection.Open();
@@ -79,41 +80,113 @@ namespace internalProgram
             Close();
         }
 
-        private void SetAdmin(object sender, RoutedEventArgs e)
+        public void SelectRow(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = sender as DataGridRow;
+            Ticket selectedTicket = row.Item as Ticket;
+            nameDisplaySelected.Text = selectedTicket.ticketName;
+            emailDisplaySelected.Text = selectedTicket.ticketEmail;
+            idDisplaySelected.Text = selectedTicket.ticketId;
+            descriptionDisplaySelected.Text = selectedTicket.description;
+            catagoryDisplaySelected.Text = selectedTicket.catagory;
+            statusDisplaySelected.Text = selectedTicket.status;
+            adminDisplaySelected.Text = selectedTicket.assignedTo;
+        }
+
+
+        public void SetAdmin(object sender, RoutedEventArgs e)
         {
             string nameString = nameDisplaySelected.Text;
             string emailString = emailDisplaySelected.Text;
-            string ticketId = idDisplaySelected.Text;
+            string ticketIdString = idDisplaySelected.Text;
             string descriptionString = descriptionDisplaySelected.Text;
-            string catagory = descriptionDisplaySelected.Text;
+            string catagoryString = catagoryDisplaySelected.Text;
+            string statusString = statusDisplaySelected.Text;
+            string adminString = setAdminBox.Text;
+
             int ticketIdNumerical = 0;
-            bool idIsNumeric = int.TryParse(ticketId, out ticketIdNumerical);
+            bool idIsNumeric = int.TryParse(ticketIdString, out ticketIdNumerical);
             if (idIsNumeric)
             {
                 connection.Open();
-                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory) VALUES ('{ticketId}', '{nameString}', '{emailString}', '{descriptionString}', 'unresolved', '{catagory}');";
+                var deleteCommand = new MySqlCommand($"DELETE FROM tickets WHERE TicketId = '{ticketIdNumerical}'", connection);
+                deleteCommand.ExecuteNonQuery();
+                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
                 var sendTicket = new MySqlCommand(queryString, connection);
-                connection.Open();
                 sendTicket.ExecuteNonQuery();
                 connection.Close();
-                MessageBox.Show("Your complaint has been succesfuly submited");
+                MessageBox.Show($"Ticket Assigned to {adminString}");
                 connection.Close();
             }
+            AdminWindow AdminWindow = new AdminWindow();
+            AdminWindow.Show();
+            Close();
 
         }
 
-        private void SetStatus(object sender, RoutedEventArgs e)
+        public void SetStatus(object sender, RoutedEventArgs e)
         {
+            string nameString = nameDisplaySelected.Text;
+            string emailString = emailDisplaySelected.Text;
+            string ticketIdString = idDisplaySelected.Text;
+            string descriptionString = descriptionDisplaySelected.Text;
+            string catagoryString = catagoryDisplaySelected.Text;
+            string statusString = setStatusBox.Text;
+            string adminString = adminDisplaySelected.Text;
+
+            int ticketIdNumerical = 0;
+            bool idIsNumeric = int.TryParse(ticketIdString, out ticketIdNumerical);
+            if (idIsNumeric)
+            {
+                connection.Open();
+                var deleteCommand = new MySqlCommand($"DELETE FROM tickets WHERE TicketId = '{ticketIdNumerical}'", connection);
+                deleteCommand.ExecuteNonQuery();
+                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
+                var sendTicket = new MySqlCommand(queryString, connection);
+                sendTicket.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Status Succesfuly Modified");
+                connection.Close();
+            }
+            AdminWindow AdminWindow = new AdminWindow();
+            AdminWindow.Show();
+            Close();
 
         }
 
-        private void SetCatagory(object sender, RoutedEventArgs e)
+        public void SetCatagory(object sender, RoutedEventArgs e)
         {
+            string nameString = nameDisplaySelected.Text;
+            string emailString = emailDisplaySelected.Text;
+            string ticketIdString = idDisplaySelected.Text;
+            string descriptionString = descriptionDisplaySelected.Text;
+            string catagoryString = setCatagoryBox.Text;
+            string statusString = statusDisplaySelected.Text;
+            string adminString = adminDisplaySelected.Text;
+
+            int ticketIdNumerical = 0;
+            bool idIsNumeric = int.TryParse(ticketIdString, out ticketIdNumerical);
+            if (idIsNumeric)
+            {
+                connection.Open();
+                var deleteCommand = new MySqlCommand($"DELETE FROM tickets WHERE TicketId = '{ticketIdNumerical}'", connection);
+                deleteCommand.ExecuteNonQuery();
+                string queryString = $"INSERT INTO tickets(TicketId, Name, Email, Description, Status, Catagory, AssignedTo) VALUES ('{ticketIdString}', '{nameString}', '{emailString}', '{descriptionString}', '{statusString}', '{catagoryString}', '{adminString}');";
+                var sendTicket = new MySqlCommand(queryString, connection);
+                sendTicket.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Catagory Succesfuly Modified");
+                connection.Close();
+            }
+            AdminWindow AdminWindow = new AdminWindow();
+            AdminWindow.Show();
+            Close();
 
         }
 
         public void GenerateDataGrid()
         {
+            
             connection.Open();
             bool moreTicets = true;
             int currentTicketId = 1;
@@ -129,7 +202,6 @@ namespace internalProgram
                 }
                 else
                 {
-                    Console.WriteLine("here");
                     currentTicketId += 1;
                     sumOfTickets += 1;
                 }
@@ -169,23 +241,6 @@ namespace internalProgram
             }
             connection.Close();
         }
-        private void SelectRow(object sender, MouseButtonEventArgs e) 
-        {
-            DataGridRow row = sender as DataGridRow;
-            Ticket selectedTicket = row.Item as Ticket;
-            nameDisplaySelected.Text = selectedTicket.ticketName;
-            emailDisplaySelected.Text = selectedTicket.ticketEmail;
-            idDisplaySelected.Text = selectedTicket.ticketId;
-            descriptionDisplaySelected.Text = selectedTicket.description;
-        }
-
-        private void change(object sender, RoutedEventArgs e)
-        {
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
-            Close();
-        }
-
     }
 
     public class Ticket

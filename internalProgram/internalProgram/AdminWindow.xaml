@@ -10,8 +10,8 @@
     <Border Background="#2E3137" CornerRadius="20" Margin="20">
         <Grid>
             <Separator Margin="10,50,10,360.5"/>
-            <Button x:Name="logoutButton" Content="Logout" Margin="580,15,21,382.5" Background="#545d6a" FontSize="20" Foreground="White" Click="Logout"/>
-            <Label x:Name="usernameLabel" Content="Manage Tickets" Foreground="White" FontSize="24" Margin="22,10,318,372.5"/>
+            <Button x:Name="logoutButton" Content="Logout" Margin="591,15,10,372.5" Background="#545d6a" FontSize="20" Foreground="White" Click="Logout"/>
+            <Label x:Name="usernameLabel" Content="Manage Tickets, Click Column Header to Sort" Foreground="White" FontSize="24" Margin="22,10,203,372.5"/>
             <DataGrid Margin="10,77,10,152.5" Name="ticketDisplay" IsReadOnly="True" Background="#545d6a" Foreground="black" AutoGenerateColumns="False">
                 <DataGrid.Resources>
 
@@ -39,7 +39,7 @@
                     <DataGridTextColumn Header="Ticket ID" Binding="{Binding ticketId}" Width="65"/>
                     <DataGridTextColumn Header="Name of Sender" Binding="{Binding ticketName}" Width="120"/>
                     <DataGridTextColumn Header="Email of Sender" Binding="{Binding ticketEmail}"  Width="120"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="200"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="143"/>
                     <DataGridTextColumn Header="Catagory" Binding="{Binding catagory}" Width="80"/>
                     <DataGridTextColumn Header="Assigned to " Binding="{Binding assignedTo}"/>
                     <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="96"/>
@@ -51,22 +51,26 @@
             <TextBox Name="emailDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="22,344,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
             <TextBox Name="idDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="22,374,0,0" TextWrapping="Wrap" Text="Ticket ID" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
 
-            <TextBox Name="descriptionDisplaySelected" HorizontalAlignment="Left" Height="82" Margin="157,316,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="331" IsReadOnly="True" Background="#545d6a" Foreground="White"  AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            <TextBox x:Name="catagoryDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="147,316,0,0" TextWrapping="Wrap" Text="Catagory" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
+            <TextBox x:Name="statusDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="147,345,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
+            <TextBox x:Name="adminDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="147,374,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
+
+            <TextBox Name="descriptionDisplaySelected" HorizontalAlignment="Left" Height="82" Margin="272,316,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="228" IsReadOnly="True" Background="#545d6a" Foreground="White"  AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
 
             <Label Content="Double Click Row to Select Ticket" HorizontalAlignment="Left" Margin="22,282,0,0" VerticalAlignment="Top" Foreground="White"/>
 
             <Separator Margin="20,306,22,122.5" RenderTransformOrigin="0.5,0.5"/>
 
-            <Button Name="SelectStatusButton" Content="Set Status" HorizontalAlignment="Left" Margin="505,344,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096"/>
-            <ComboBox Name="setStatusBox" HorizontalAlignment="Left" Margin="614,345,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.512,0.041" Height="23">
+            <Button Name="SelectStatusButton" Content="Set Status" HorizontalAlignment="Left" Margin="505,344,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096" Click="SetStatus"/>
+            <ComboBox Name="setStatusBox" HorizontalAlignment="Left" Margin="605,345,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.512,0.041" Height="23" SelectedIndex="1" >
                 <ComboBoxItem Content="Resolved"/>
                 <ComboBoxItem Content="Unresolved"/>
             </ComboBox>
 
-            <Button Name="setAdminButton" Content="Assign Admin" HorizontalAlignment="Left" Margin="505,316,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096"  />
-            <ComboBox Name="setAdminBox" HorizontalAlignment="Left" Margin="614,316,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.512,0.041" Height="24" ItemsSource="{Binding adminList}"/>
-            <Button x:Name="setCatagory" Content="Set Catagory" HorizontalAlignment="Left" Margin="505,374,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096"/>
-            <ComboBox x:Name="setStatusBox_Copy" HorizontalAlignment="Left" Margin="614,374,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.512,0.041" Height="24">
+            <Button Name="setAdminButton" Content="Assign Admin" HorizontalAlignment="Left" Margin="505,316,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096" Click="SetAdmin" />
+            <ComboBox Name="setAdminBox" HorizontalAlignment="Left" Margin="605,316,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.512,0.041" Height="24" ItemsSource="{Binding adminList}" SelectedIndex="0"/>
+            <Button x:Name="setCatagory" Content="Set Catagory" HorizontalAlignment="Left" Margin="505,374,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096" Click="SetCatagory"/>
+            <ComboBox x:Name="setCatagoryBox" HorizontalAlignment="Left" Margin="605,374,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.512,0.041" Height="24" SelectedIndex="6">
                 <ComboBoxItem Content="Wireless"/>
                 <ComboBoxItem Content="Photocopiers/Printers,"/>
                 <ComboBoxItem Content="Hardware"/>
