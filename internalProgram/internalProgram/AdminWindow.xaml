@@ -5,12 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:internalProgram"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="500" Width="800" FontSize="14" Background="Maroon">
-    
+        Title="Admin Window" Height="500" Width="800" FontSize="14" Background="Maroon">
+
     <Border Background="#2E3137" CornerRadius="20" Margin="20">
         <Grid>
+            <Separator Margin="10,50,10,360.5"/>
+            <Button x:Name="logoutButton" Content="Logout" Margin="580,15,21,382.5" Background="#545d6a" FontSize="20" Foreground="White" Click="Logout"/>
+            <Label x:Name="usernameLabel" Content="Manage Tickets" Foreground="White" FontSize="24" Margin="22,10,318,372.5"/>
+            <DataGrid Margin="10,77,10,152.5" Name="ticketDisplay" IsReadOnly="True" Background="#545d6a" Foreground="black" AutoGenerateColumns="False">
+                <DataGrid.Resources>
 
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDoubleClick" Handler="SelectRow"/>
+                    </Style>
 
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#2E3137"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                    </Style>
+
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Background" Value="#545d6a"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                        <Setter Property="BorderBrush" Value="#2E3137"/>
+                    </Style>
+
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ticket ID" Binding="{Binding ticketId}" Width="65"/>
+                    <DataGridTextColumn Header="Name of Sender" Binding="{Binding ticketName}" Width="120"/>
+                    <DataGridTextColumn Header="Email of Sender" Binding="{Binding ticketEmail}"  Width="120"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="200"/>
+                    <DataGridTextColumn Header="Catagory" Binding="{Binding catagory}" Width="80"/>
+                    <DataGridTextColumn Header="Assigned to " Binding="{Binding assignedTo}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="96"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Rectangle Fill="#2E3137" HorizontalAlignment="Left" Height="128" Margin="10,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="735"/>
+
+            <TextBox Name="nameDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="22,316,0,0" TextWrapping="Wrap" Text="Summary" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
+            <TextBox Name="emailDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="22,344,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
+            <TextBox Name="idDisplaySelected" HorizontalAlignment="Left" Height="24" Margin="22,374,0,0" TextWrapping="Wrap" Text="Ticket ID" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="#545d6a" Foreground="White"/>
+
+            <TextBox Name="descriptionDisplaySelected" HorizontalAlignment="Left" Height="82" Margin="157,316,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="331" IsReadOnly="True" Background="#545d6a" Foreground="White"  AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+
+            <Label Content="Double Click Row to Select Ticket" HorizontalAlignment="Left" Margin="22,282,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+            <Separator Margin="20,306,22,122.5" RenderTransformOrigin="0.5,0.5"/>
+
+            <Button Name="SelectStatusButton" Content="Set Status" HorizontalAlignment="Left" Margin="505,344,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096"/>
+            <ComboBox Name="setStatusBox" HorizontalAlignment="Left" Margin="614,345,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.512,0.041" Height="23">
+                <ComboBoxItem Content="Resolved"/>
+                <ComboBoxItem Content="Unresolved"/>
+            </ComboBox>
+
+            <Button Name="setAdminButton" Content="Assign Admin" HorizontalAlignment="Left" Margin="505,316,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096"  />
+            <ComboBox Name="setAdminBox" HorizontalAlignment="Left" Margin="614,316,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.512,0.041" Height="24" ItemsSource="{Binding adminList}"/>
+            <Button x:Name="setCatagory" Content="Set Catagory" HorizontalAlignment="Left" Margin="505,374,0,0" VerticalAlignment="Top" Width="95" Height="24" RenderTransformOrigin="0.484,1.096"/>
+            <ComboBox x:Name="setStatusBox_Copy" HorizontalAlignment="Left" Margin="614,374,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.512,0.041" Height="24">
+                <ComboBoxItem Content="Wireless"/>
+                <ComboBoxItem Content="Photocopiers/Printers,"/>
+                <ComboBoxItem Content="Hardware"/>
+                <ComboBoxItem Content="Software"/>
+                <ComboBoxItem Content="Network"/>
+                <ComboBoxItem Content="Email"/>
+                <ComboBoxItem Content="Other"/>
+            </ComboBox>
         </Grid>
     </Border>
 </Window>

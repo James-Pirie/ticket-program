@@ -41,21 +41,23 @@ namespace internalProgram
             string nameString = nameBox.Text;
             string emailString = emailBox.Text;
             string descriptionString = issueBox.Text;
-            var sendTicket = new MySqlCommand($"INSERT INTO tickets(Name, Email, Description) VALUES ('{nameString}', '{emailString}', '{descriptionString}');", connection);
+            string catagory = selectCatagory.Text;
+            string queryString = $"INSERT INTO tickets(Name, Email, Description, Status, Catagory) VALUES ('{nameString}', '{emailString}', '{descriptionString}', 'unresolved', '{catagory}');";
+            var sendTicket = new MySqlCommand(queryString, connection);
             connection.Open();
             sendTicket.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show("Your complaint has been succesfuly submited");
         }
 
-        public void Logout(object sender, RoutedEventArgs e)
+        private void Logout(object sender, RoutedEventArgs e)
         {
             MainWindow MainWindow = new MainWindow();
             MainWindow.Show();
             Close();
         }
 
-        private void issueBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

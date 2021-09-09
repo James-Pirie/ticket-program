@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:internalProgram"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500" FontSize="14" Background="Maroon">
+        Title="Login Window" Height="500" Width="500" FontSize="14" Background="Maroon">
 
     <Border Background="#2E3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="20">

@@ -47,19 +47,16 @@ namespace internalProgram
             connection.Open();
             string user = (string)checkUsernameCommand.ExecuteScalar();
 
-
-            var checkRoleCommand = new MySqlCommand($"SELECT Role FROM login WHERE UserName = '{usernameBox.Text}' AND Password = '{passwordBox.Password}';", connection);
-            var userRole = checkRoleCommand.ExecuteScalar();
-            string userRoleString = userRole.ToString();
-
-            connection.Close();
-
             if (String.IsNullOrEmpty(user))
             {
                 MessageBox.Show("Wrong username/password");
+                connection.Close();
             }
             else
             {
+                var checkRoleCommand = new MySqlCommand($"SELECT Role FROM login WHERE UserName = '{usernameBox.Text}' AND Password = '{passwordBox.Password}';", connection);
+                var userRole = checkRoleCommand.ExecuteScalar();
+                string userRoleString = userRole.ToString();
 
                 if (userRoleString == "Admin") 
                 {
@@ -73,13 +70,10 @@ namespace internalProgram
                     ControlWindow ControlWindow = new ControlWindow();
                     ControlWindow.Show();
                 }
-                    
-                
-                
-                
+
+                connection.Close();
                 Close();
             }
-
         }
     }
 }
