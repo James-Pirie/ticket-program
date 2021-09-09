@@ -261,6 +261,11 @@ namespace internalProgram
             }
             connection.Close();
         }
+
+        private void ticketDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class Ticket

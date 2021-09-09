@@ -12,7 +12,7 @@
             <Separator Margin="10,50,10,360.5"/>
             <Button x:Name="logoutButton" Content="Logout" Margin="591,15,10,372.5" Background="#545d6a" FontSize="20" Foreground="White" Click="Logout"/>
             <Label x:Name="usernameLabel" Content="Manage Tickets, Click Column Header to Sort" Foreground="White" FontSize="24" Margin="22,10,203,372.5"/>
-            <DataGrid Margin="10,77,10,152.5" Name="ticketDisplay" IsReadOnly="True" Background="#545d6a" Foreground="black" AutoGenerateColumns="False">
+            <DataGrid Margin="10,77,10,152.5" Name="ticketDisplay" IsReadOnly="True" Background="#545d6a" Foreground="black" AutoGenerateColumns="False" SelectionChanged="ticketDisplay_SelectionChanged">
                 <DataGrid.Resources>
 
                     <Style TargetType="DataGridRow">
@@ -37,13 +37,13 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Ticket ID" Binding="{Binding ticketId}" Width="65"/>
-                    <DataGridTextColumn Header="Name of Sender" Binding="{Binding ticketName}" Width="120"/>
+                    <DataGridTextColumn Header="Summary" Binding="{Binding ticketName}" Width="100"/>
                     <DataGridTextColumn Header="Email of Sender" Binding="{Binding ticketEmail}"  Width="120"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="80"/>
                     <DataGridTextColumn Header="Catagory" Binding="{Binding catagory}" Width="80"/>
-                    <DataGridTextColumn Header="Assigned to " Binding="{Binding assignedTo}"/>
+                    <DataGridTextColumn Header="Assigned to" Binding="{Binding assignedTo}"/>
                     <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="80"/>
-                    <DataGridTextColumn Header="Info" Binding="{Binding info}" Width="79"/>
+                    <DataGridTextColumn Header="Info" Binding="{Binding info}" Width="99"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Rectangle Fill="#2E3137" HorizontalAlignment="Left" Height="128" Margin="10,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="735"/>

@@ -49,7 +49,7 @@ namespace internalProgram
             string catagory = selectCatagory.Text;
             string realName = realNameBox.Text;
             string job = jobBox.Text;
-            string queryString = $"INSERT INTO tickets(Name, Email, Description, Status, Catagory, UserId, RealName, Job) VALUES ('{nameString}', '{emailString}', '{descriptionString}', 'unresolved', '{catagory}', '1', '{realName}', '{job}');";
+            string queryString = $"INSERT INTO tickets(Name, Email, Description, Status, Catagory, RealName, Job) VALUES ('{nameString}', '{emailString}', '{descriptionString}', 'unresolved', '{catagory}', '{realName}', '{job}');";
             var sendTicket = new MySqlCommand(queryString, connection);
             connection.Open();
             sendTicket.ExecuteNonQuery();
