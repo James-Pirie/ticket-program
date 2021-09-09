@@ -22,7 +22,6 @@ namespace internalProgram
     /// </summary>
     public partial class MainWindow : Window
     {
-        string name = "asdf";
         MySqlConnection connection;
         public MainWindow()
         {

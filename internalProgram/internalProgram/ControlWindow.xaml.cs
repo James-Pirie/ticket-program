@@ -24,12 +24,7 @@ namespace internalProgram
 
         public ControlWindow()
         {
-            
             InitializeComponent();
-
-            
-
-            
             string connectionString = string.Format(
             "Server=nimbus.rangitoto.school.nz;" +
             "Port=3307;" +
@@ -62,16 +57,6 @@ namespace internalProgram
             MainWindow MainWindow = new MainWindow();
             MainWindow.Show();
             Close();
-        }
-
-        private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void selectCatagory_Copy_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
